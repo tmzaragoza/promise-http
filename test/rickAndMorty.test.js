@@ -1,4 +1,7 @@
-const { getCharacter } = require('../lib/services/rickAndMortyApi');
+const { 
+  getCharacter,
+  getCharacters
+ } = require('../lib/services/rickAndMortyApi');
 
 describe('getCharacter', () => {
   it('gets a character by id', () => {
@@ -10,5 +13,11 @@ describe('getCharacter', () => {
           species: 'Human'
         });
       });
+  });
+  it('gets a list of characters', () => {
+    return getCharacters()
+    .then(characters => {
+      expect(characters).toBeDefined();
+    });
   });
 });
