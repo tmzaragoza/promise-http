@@ -25,13 +25,15 @@ describe('app', () => {
   //       expect(res.status).toEqual(204);
   //     })
   // })
-  it('has a tester rout' , () => {
+  it('has a tester rout', () => {
     return request(app)
     .get('/character/1')
     .then(res => {
       expect(res.body).toEqual({
-        
+        name: 'Rick Sanchez',
+        species: 'Human',
+        status: 'Alive'
       });
-    })
-  })
+    });
+  });
 })
