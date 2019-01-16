@@ -19,7 +19,7 @@ describe('app', () => {
   // })
   it('has a tester route',() => {
     return request(app)
-      .post('./notes')
+      .post('/notes')
       .send({ text: 'I"m a note' })
       .then(res => {
         expect(res.status).toEqual(204);
