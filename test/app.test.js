@@ -1,7 +1,6 @@
 const request = require('supertest');
 const app = require('../lib/app');
 
-
 jest.mock('../lib/services/rickAndMortyApi.js');
   
 describe('app', () => {
@@ -28,16 +27,20 @@ describe('app', () => {
   //       expect(res.status).toEqual(204);
   //     })
   // })
-  it('has a tester rout', () => {
+  // it('writes list of characters', () => {
+  //   return request(app)
+  //   .get('/characters')
+  //   .then(res => {
+  //     expect(res.text).toEqual(`<html><body><li>Rick Sanchez</li><li>Morty Smith</li></body></html>`);
+  //   });
+  // });
+  it('saves a note to an object', () => {
     return request(app)
-    .get('/character/1')
-    .then(res => {
-      expect(res.body).toEqual({
-        name: 'Rick Sanchez',
-        species: 'Human',
-        status: 'Alive'
-      });
-    });
-  });
-  
+      .post('/characters')
+      .send({ characterId: 1, note: 'My favourite character'})
+      .then(res => {
+        
+        expect(res.status).toEqual(204);
+      })
+  })  
 })
