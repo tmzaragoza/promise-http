@@ -39,7 +39,6 @@ describe('app', () => {
       .post('/characters')
       .send({ characterId: 1, note: 'My favourite character'})
       .then(res => {
-        
         expect(res.status).toEqual(204);
       })
   })  
