@@ -8,4 +8,4 @@ const readPromise = src => new Promise((resolve, reject) => {
 });
 
 readPromise('./promises.md')
-  .then(data => console.log(data));
+  .then(data => data);
