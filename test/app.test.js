@@ -11,12 +11,19 @@ describe('app', () => {
         expect(res.text).toEqual(`<html><body><li>Rick Sanchez</li><li>Morty Smith</li></body></html>`);
       });
   });
-  it('saves a note to an object', () => {
+  it('saves a note to an character', () => {
     return request(app)
       .post('/characters')
-      .send({ characterId: 1, note: 'My favourite character'})
+      .send({ characterId: 1, note: 'My favourite character' })
       .then(res => {
         expect(res.status).toEqual(204);
       })
-  })  
+  });
+  it.only('displays a character by id and all notes about them', () => {
+    return request(app)
+      .get('/characters/1')
+      .then(res => {
+        expect(res.status).toEqual(200);
+      })
+  })
 })
