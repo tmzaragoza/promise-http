@@ -19,11 +19,11 @@ describe('app', () => {
         expect(res.status).toEqual(204);
       })
   });
-  it.only('displays a character by id and all notes about them', () => {
+  it('displays a character by id and all notes about them', () => {
     return request(app)
       .get('/characters/1')
       .then(res => {
-        expect(res.status).toEqual(200);
+        expect(res.text).toContain('Rick');
       })
   })
 })
