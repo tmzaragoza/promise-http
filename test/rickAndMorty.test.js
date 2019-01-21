@@ -1,7 +1,7 @@
 const { 
   getCharacter,
   getCharacters
- } = require('../lib/services/rickAndMortyApi');
+} = require('../lib/services/rickAndMortyApi');
 
 describe('getCharacter', () => {
   it('gets a character by id', () => {
@@ -16,8 +16,8 @@ describe('getCharacter', () => {
   });
   it('gets a list of characters', () => {
     return getCharacters()
-    .then(characters => {
-      expect(characters).toBeDefined();
-    });
+      .then(characters => {
+        expect(characters).toHaveLength(20);
+      });
   });
 });

@@ -1,7 +1,7 @@
 const fs = require('fs');
 
 const readPromise = src => new Promise((resolve, reject) => {
-  fs.readFile('./promises.md', { encoding: 'utf8'}, (err, data) => {
+  fs.readFile(src, './promises.md', { encoding: 'utf8' }, (err, data) => {
     if(err) return reject(err);
     resolve(data);
   });
