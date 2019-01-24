@@ -19,16 +19,16 @@ describe('app', () => {
         expect(res.status).toEqual(204);
       });
   });
-  it('displays a character by id and all notes about them', () => {
+  it.only('displays a character by id and all notes about them', () => {
     return request(app)
-      .post('/characters')
+      .post('/characters/')
       .send({ characterId: 1, note: 'BEST' })
       .then(() => {
         return request(app)
           .get('/characters/1');
       })
       .then(res => {
-        expect(res.status).toEqual(204);
+        expect(res.text).toContain('BEST');
       });
   });
 });
